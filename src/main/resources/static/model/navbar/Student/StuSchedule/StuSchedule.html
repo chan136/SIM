@@ -1,0 +1,98 @@
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+
+<script type="text/x-kendo-template" id="gridEditor">
+    <div class=" textboxes">
+
+        <div class="k-edit-label"><label>班级编号</label></div>
+        <div class="k-edit-field">
+            <input type="text"  k-on-change="dataItem.dirty=true" class="k-input k-textbox ch" ng-model="dataItem.classNo"/>
+        </div>
+
+        <div class="k-edit-label"><label>课程编号</label></div>
+        <div class="k-edit-field">
+            <input type="text"  k-on-change="dataItem.dirty=true" class="k-input k-textbox ch" ng-model="dataItem.courseNo"/>
+        </div>
+
+        <div class="k-edit-label"><label>上课时间</label></div>
+        <div class="k-edit-field">
+            <input type="text"  k-on-change="dataItem.dirty=true" class="k-input k-textbox ch" ng-model="dataItem.courseTime"/>
+        </div>
+
+        <div class="k-edit-label"><label>上课地点</label></div>
+        <div class="k-edit-field">
+            <input type="text"  k-on-change="dataItem.dirty=true" class="k-input k-textbox ch" ng-model="dataItem.coursePlace"/>
+        </div>
+
+    </div>
+</script>
+
+<div style="margin-bottom: 20px;">
+    <span style="font-size: 30px">学院课表信息维护</span>
+</div>
+<div class="textboxes" style="margin:10px;">
+
+    <div class="form-inline group-margin">
+
+        <div class="form-group">
+            <label>学年:</label>
+            <select kendo-drop-down-list
+                    k-data-source="yearSource"
+                    k-data-text-field="'year'"
+                    k-data-value-field="'year'"
+                    ng-model="condition.schoolYear">
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>学期:</label>
+            <select kendo-drop-down-list
+                    k-data-source="termSource"
+                    k-data-text-field="'term'"
+                    k-data-value-field="'term'"
+                    ng-model="condition.schoolTerm">
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>班级编号:</label>
+            <input class="k-input k-textbox" ng-trim="true" ng-model="condition.courseNo">
+        </div>
+
+        <div class="form-group">
+            <label>专业:</label>
+            <input class="k-input k-textbox" ng-trim="true" ng-model="condition.major">
+        </div>
+
+        <div class="form-group">
+            <label>学院:</label>
+            <select kendo-drop-down-list
+                    k-data-source="collegeSource"
+                    k-data-text-field="'college'"
+                    k-data-value-field="'college'"
+                    ng-model="condition.college">
+            </select>
+        </div>
+
+        <div class="form-group">
+            <kendo-button class="k-primary" ng-click="query()">查询</kendo-button>
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <div kendo-grid="grid"
+         k-column-menu="true"
+         k-sortable="true"
+         k-resizable="true"
+         k-navigatable="true"
+         k-pageable="pageable"
+         k-filterable="true"
+         k-editable="editable"
+         k-selectable="'row'"
+         k-toolbar="toolbar"
+         k-columns="columns"
+         k-data-source="dataSource"
+         k-on-edit="gridRowEdit(kendoEvent)">
+
+    </div>
+</div>

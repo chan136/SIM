@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>成绩查询</title>
+</head>
+<body>
+<div class="title1">
+    <span>学号：{{list.stuNo}}</span>
+    <span>姓名：{{list.stuName}}</span>
+    <span>学院：{{list.college}}</span>
+    <span>专业：{{list.major}}</span>
+    <span>班级：{{list.className}}</span>
+</div>
+
+
+<table class="table-c" >
+    <caption style="    text-align: center;font-size: 22px;font-weight: bold;">在校学习成绩</caption>
+   <thead>
+   <tr style="background: #DADADA;">
+       <th class="font">学年</th>
+       <th class="font">学期</th>
+       <th class="font">课程编号</th>
+       <th class="font">课程名称</th>
+       <th class="font">课程性质</th>
+       <th class="font">学分</th>
+       <th  class="font">成绩</th>
+       <th class="font">补考成绩</th>
+       <th class="font">重修成绩</th>
+   </tr>
+   </thead>
+    <tbody>
+    <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="item in detail" >
+        <td class="center">{{item.schoolYear}}</td>
+        <td class="center">{{item.schoolTerm}}</td>
+        <td class="center">{{item.courseNo}}</td>
+        <td class="center">{{item.courseName}}</td>
+        <td class="center">{{item.courseKind}}</td>
+        <td class="center">{{item.courseCredit}}</td>
+        <td class="center">{{item.courseScore}}</td>
+        <td class="center">{{item.reTestScore}}</td>
+        <td class="center">{{item.reStudyScore}}</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

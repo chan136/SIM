@@ -1,0 +1,202 @@
+
+<table cellspacing="0" style="border:1px solid ;margin: 0 auto" class="tt">
+    <tr>
+        <td>
+            学号：
+        </td>
+        <td>
+            {{info.stuNo}}
+        </td>
+        <td>
+            姓名：
+        </td>
+        <td>
+            {{info.stuName}}
+        </td>
+        <td>
+            性别：
+        </td>
+        <td>
+            {{info.stuSex}}
+        </td>
+
+        <td rowspan="6" width="400px">
+            <img id="show" ng-src="http://localhost:8080/files/{{info.stuNo}}.jpg"  width="200px" height="200px ">
+            <br><span style="color: red">文件类型 jpg</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td >
+            出生日期：
+        </td>
+        <td>
+            {{info.stuBirthTime}}
+        </td>
+        <td >
+            籍贯：
+        </td>
+        <td>
+            <input style="text-align:center;" type="text"  class="k-input k-textbox" ng-model="info.stuProvince"/>
+
+        </td>
+        <td>
+            民族：
+        </td>
+        <td>
+            <input style="text-align:center;" type="text"  class="k-input k-textbox" ng-model="info.stuNation"/>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            政治面貌：
+        </td>
+        <td>
+            <select kendo-drop-down-list
+                    k-data-source="faceDropDown"
+
+                    k-data-text-field="'face'"
+                    k-data-value-field="'face'"
+                    ng-model="info.stuFace">
+            </select>
+        </td>
+        <td>
+            学制：
+        </td>
+        <td>
+            {{info.stuStudyTime}}
+        </td>
+        <td>
+            入学时间：
+        </td>
+        <td>
+            {{info.stuSchoolTime}}
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            班级编号：
+        </td>
+        <td>
+            {{info.classNo}}
+        </td>
+        <td>
+            宿舍：
+        </td>
+        <td>
+            <input style="text-align:center;" type="text"  class="k-input k-textbox" ng-model="info.stuDormitory"/>
+
+        </td>
+        <td>
+            联系电话：
+        </td>
+        <td>
+            <input style="text-align:center;" type="text"  class="k-input k-textbox" ng-model="info.stuPhone"/>
+
+        </td>
+
+    </tr>
+
+    <tr>
+        <td>
+            邮件地址：
+        </td>
+        <td>
+            <input style="text-align:center;" type="text"  class="k-input k-textbox" ng-model="info.stuEMail"/>
+        </td>
+        <td>
+            邮编：
+        </td>
+        <td>
+            <input style="text-align:center;" type="text"  class="k-input k-textbox" ng-model="info.stuPost"/>
+
+        </td>
+        <td>
+            身份证号：
+        </td>
+        <td>
+            {{info.stuID}}
+        </td>
+
+    </tr>
+
+    <tr>
+        <td>
+            毕业日期：
+        </td>
+        <td>
+            {{info.stuGraduateDate}}
+        </td>
+        <td>
+            是否毕业：
+        </td>
+        <td>
+            {{info.stuIsGraduate}}
+        </td>
+        <td>
+            父亲姓名：
+        </td>
+        <td>
+            <input style="text-align:center;" type="text"  class="k-input k-textbox" ng-model="info.stuFatherName"/>
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            父亲职业：
+        </td>
+        <td>
+            <input style="text-align:center;" type="text"  class="k-input k-textbox" ng-model="info.stuFatherJob"/>
+        </td>
+        <td>
+            父亲联系方式：
+        </td>
+        <td>
+            <input style="text-align:center;" type="text"  class="k-input k-textbox" ng-model="info.stuFatherPhone"/>
+
+        </td>
+        <td>
+            母亲姓名：
+        </td>
+        <td>
+            <input style="text-align:center;" type="text"  class="k-input k-textbox" ng-model="info.stuMotherName"/>
+        </td>
+
+        <td align="center" valign="middle">
+            <input type="file" accept="image/gif, image/jpeg, image/png, image/jpg"/>
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            母亲职业：
+        </td>
+        <td>
+            <input style="text-align:center;" type="text"  class="k-input k-textbox" ng-model="info.stuMotherJob"/>
+
+        </td>
+        <td>
+            母亲联系方式：
+        </td>
+        <td>
+            <input style="text-align:center;" type="text"  class="k-input k-textbox" ng-model="info.stuMotherPhone"/>
+        </td>
+
+        <td colspan="2">
+        </td>
+
+        <td>
+            <kendo-button class="k-primary" ng-click="download()">上传照片</kendo-button>
+        </td>
+
+    </tr>
+
+</table>
+
+<br>
+<br>
+<div style="text-align:center;margin: 0 auto">
+    <kendo-button class="k-primary" ng-click="save()">保存修改</kendo-button>
+</div>

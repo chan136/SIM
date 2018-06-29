@@ -1,0 +1,181 @@
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+<!--导航栏-->
+<nav id="navbar-example" class="navbar navbar-default navbar-fixed-top" role="navigation"
+     ng-controller="navbarCtrl as vm">
+
+    <div class="container-fluid" style="background-color: #f0f0f0;">
+        <!--左边头部-->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#myCollapsible">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src="img/SIM.png" alt="找不见..." class="sign" ng-click="collapseNavbar()"> &nbsp;&nbsp;
+            <span style="font-size: 18px;color: black;line-height: 50px;" ng-click="collapseNavbar()">学生信息管理系统</span>
+        </div>
+        <div class="collapse navbar-collapse" id="myCollapsible" uib-collapse="isNavbarCollapsed"
+             style="background-color: #eeeeee;">
+            <ul class="nav navbar-nav navbar-right">
+                <!--右边未登录前-->
+                <li ui-sref-active="active" ng-click="vm.hideNav()"><a
+                        ui-sref="home"><span class="glyphicon glyphicon-home"></span><span
+                        class="hidden-sm"> 首页</span></a></li>
+
+                <li class="dropdown" ng-if="loginValue">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <span class="hidden-sm">账号</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="vm.hideNav()"><a ui-sref="login"><span
+                                class="glyphicon glyphicon-log-in"></span><span>&nbsp;&nbsp;登录</span></a></li>
+                    </ul>
+                </li>
+                <!--登录之后-->
+
+                <li ng-if="adminValue" ui-sref-active="active" role="presentation" >
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="glyphicon glyphicon-bishop"></span>
+                        <span class="hidden-sm">学生信息维护</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="vm.hideNav()" ><a ui-sref="StuInfo"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;学生信息</span></a></li>
+                        <li ng-click="vm.hideNav()"><a ui-sref="StuGrade"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;学生成绩</span></a></li>
+                        <li ng-click="vm.hideNav()"><a ui-sref="StuCourse"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;学生课程</span></a></li>
+                    </ul>
+                </li>
+                <li ng-if="adminValue" ui-sref-active="active" role="presentation">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="glyphicon glyphicon-bishop"></span>
+                        <span class="hidden-sm">教师信息维护</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="vm.hideNav()"><a ui-sref="TeaInfo"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;教师信息</span></a></li>
+                        <li ng-click="vm.hideNav()"><a ui-sref="TeaLesson"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;教师授课</span></a></li>
+                        <li ng-click="vm.hideNav()"><a ui-sref="schoolTeaching"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;班主任任职</span></a></li>
+                    </ul>
+
+                </li>
+                <li ng-if="adminValue" role="presentation" ui-sref-active="active">
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="glyphicon glyphicon-bishop"></span>
+                        <span class="hidden-sm">课程信息维护</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="vm.hideNav()"><a ui-sref="CourInfo"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;课程信息</span></a></li>
+                        <li ng-click="vm.hideNav()"><a ui-sref="CourseSetting"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;课程开设</span></a></li>
+                        <li ng-click="vm.hideNav()"><a ui-sref="StuSchedule"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;课程安排</span></a></li>
+                    </ul>
+                </li>
+
+                <li ng-if="adminValue" role="presentation" ui-sref-active="active" ng-click="vm.hideNav()"><a
+                        ui-sref="class"><span
+                        class="glyphicon glyphicon-bishop"></span><span class="hidden-sm">&nbsp;班级信息维护</span></a></li>
+
+                <li ng-if="adminValue" role="presentation" ui-sref-active="active" ng-click="vm.hideNav()"><a
+                        ui-sref="user"><span
+                        class="glyphicon glyphicon-bell"></span><span class="hidden-sm">&nbsp;用户信息维护</span></a></li>
+
+                <li ng-if="teacherValue" role="presentation" ui-sref-active="active" >
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="glyphicon glyphicon-bishop"></span>
+                        <span class="hidden-sm">教师信息维护</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="vm.hideNav()" ><a ui-sref="TeaInfo"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;教师信息</span></a></li>
+                        <li ng-click="vm.hideNav()"><a ui-sref="TeaLesson" ng-click="vm.hideNav()"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;教师授课</span></a></li>
+                    </ul>
+
+                </li>
+
+                <li ng-if="teacherValue" role="presentation" ui-sref-active="active" >
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="glyphicon glyphicon-bishop"></span>
+                        <span class="hidden-sm">学生信息维护</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="vm.hideNav()" ><a ui-sref="StuInfo"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;学生信息</span></a></li>
+                        <li ng-click="vm.hideNav()"><a ui-sref="StuGrade" ng-click="vm.hideNav()"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;学生成绩</span></a></li>
+                    </ul>
+
+                </li>
+
+                <li ng-if="studentValue" role="presentation" ui-sref-active="active" ng-click="vm.hideNav()"><a
+                        ui-sref="Info"><span
+                        class="glyphicon glyphicon-bishop"></span><span class="hidden-sm">&nbsp;学生个人信息</span></a></li>
+
+                <li ng-if="studentValue" role="presentation" ui-sref-active="active" ng-click="vm.hideNav()"><a
+                        ui-sref="OnlineChoose"><span
+                        class="glyphicon glyphicon-bishop"></span><span class="hidden-sm">&nbsp;网上选课</span></a></li>
+
+                <li ng-if="studentValue" role="presentation" ui-sref-active="active" ng-click="vm.hideNav()">
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="glyphicon glyphicon-bishop"></span>
+                        <span class="hidden-sm">学生信息维护</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="vm.hideNav()"><a ui-sref="CourseChoose"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;个人选课</span></a></li>
+                        <li ng-click="vm.hideNav()"><a ui-sref="Table"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;个人课表</span></a></li>
+                        <li ng-click="vm.hideNav()"><a ui-sref="Score"><span
+                                class="glyphicon glyphicon-wrench"></span><span>&nbsp;&nbsp;个人成绩</span></a></li>
+                    </ul>
+                </li>
+                
+                <li ng-if="!loginValue" class="dropdown" role="presentation">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <span class="hidden-sm">账号</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="vm.hideNav()"><a ng-click="vm.openModal2();"><span
+                                class="glyphicon glyphicon-erase"></span><span>&nbsp;&nbsp; 修改密码</span></a></li>
+                        <li ng-click="vm.hideNav()"><a
+                                ng-click="vm.userLogout()"><span class="glyphicon glyphicon-log-out"></span><span>&nbsp;&nbsp; 退出</span></a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div ng-include="'model/navbar/account/changePassword/changePassword.html'"></div>
+

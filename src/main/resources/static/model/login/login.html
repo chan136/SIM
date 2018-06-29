@@ -1,0 +1,42 @@
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>学生信息管理-登录</title>
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+</head>
+<body>
+<div class="container" >
+    <section>
+        <a class="hiddenanchor" id="toregister"></a>
+        <a class="hiddenanchor" id="tologin"></a>
+        <div id="container_demo" style="margin-top:-40px">
+            <div id="wrapper">
+                <div id="login" class="animate form">
+                    <form action="CheckServlet" autocomplete="on" method="post" id="form">
+                        <h1>Log in</h1>
+                        <p>
+                            <label for="username" class="uname" data-icon="u">您的用户名</label>
+                            <input id="username" name="username" required="required" class="demo"
+                                   type="text" ng-model="vm.user.username"/>
+                        </p>
+                        <p>
+                            <label for="password" class="youpasswd" data-icon="p">密码</label>
+                            <input id="password" name="password" required="required" class="demo"
+                                   type="password" ng-model="vm.user.password"/>
+                        </p>
+                        <p class="login button">
+                            <input type="button" value="登录" ng-click="vm.login($event)"/>
+                        </p>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

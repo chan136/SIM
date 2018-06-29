@@ -1,0 +1,87 @@
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+
+<script type="text/x-kendo-template" id="gridEditor">
+    <div class=" textboxes">
+        <div class="k-edit-label" ng-show="upValue"><label>工号</label></div>
+        <div class="k-edit-field" ng-show="upValue">
+            <input type="text" k-on-change="dataItem.dirty=true" class="k-input k-textbox" ng-model="dataItem.user_no"/>
+        </div>
+        <div class="k-edit-label"><label>姓名</label></div>
+        <div class="k-edit-field">
+            <input type="text" k-on-change="dataItem.dirty=true" class="k-input k-textbox"
+                   ng-model="dataItem.user_name"/>
+        </div>
+        <div class="k-edit-label"><label>手机号</label></div>
+        <div class="k-edit-field">
+            <input type="text" k-on-change="dataItem.dirty=true" class="k-input k-textbox"
+                   ng-model="dataItem.user_phone" maxlength="11"/>
+        </div>
+        <div class="k-edit-label"><label>权限</label></div>
+        <div class="k-edit-field">
+            <select kendo-drop-down-list
+                    k-data-source="alertSource"
+                    k-data-text-field="'user_permission'"
+                    k-data-value-field="'user_permission'"
+                    ng-model="dataItem.user_permission">
+            </select>
+            <!--<input type="text"  k-on-change="dataItem.dirty=true" class="k-input k-textbox" ng-model="dataItem.user_permission" />-->
+        </div>
+        <div class="k-edit-label"><label>备注</label></div>
+        <div class="k-edit-field">
+            <input type="text" k-on-change="dataItem.dirty=true" class="k-input k-textbox"
+                   ng-model="dataItem.comments"/>
+        </div>
+
+    </div>
+</script>
+
+<div style="margin-bottom: 20px;">
+    <span style="font-size: 30px">个人课表</span>
+</div>
+<div class="textboxes" style="margin:10px;">
+
+    <div class="form-inline group-margin">
+
+        <div class="form-group">
+            <label>学年:</label>
+            <select kendo-drop-down-list
+                    k-data-source="yearSource"
+                    k-data-text-field="'year'"
+                    k-data-value-field="'year'"
+                    ng-model="condition.schoolYear">
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>学期:</label>
+            <select kendo-drop-down-list
+                    k-data-source="termSource"
+                    k-data-text-field="'term'"
+                    k-data-value-field="'term'"
+                    ng-model="condition.schoolTerm">
+            </select>
+        </div>
+
+        <div class="form-group">
+            <kendo-button class="k-primary" ng-click="query()">查询</kendo-button>
+        </div>
+
+    </div>
+</div>
+
+<div class="table-responsive">
+    <div kendo-grid="grid"
+         k-column-menu="true"
+         k-sortable="true"
+         k-resizable="true"
+         k-navigatable="true"
+         k-pageable="pageable"
+         k-filterable="true"
+         k-editable="editable"
+         k-selectable="'row'"
+         k-columns="columns"
+         k-data-source="dataSource"
+         k-on-edit="gridRowEdit(kendoEvent)">
+
+    </div>
+</div>

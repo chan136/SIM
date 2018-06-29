@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息管理系统</title>
+    <link rel="stylesheet" href="lib/sweetalert/dist/sweetalert.css"/>
+    <link rel="stylesheet" href="lib/angularjs-toaster/toaster.css">
+    <link rel="stylesheet" href="lib/angular-resizable/angular-resizable.min.css">
+    <link rel="stylesheet" href="fonts/fontawesome-webfont.eot">
+    <link rel="stylesheet" href="fonts/fontawesome-webfont.svg">
+    <link rel="stylesheet" href="fonts/fontawesome-webfont.ttf">
+    <link rel="stylesheet" href="fonts/fontawesome-webfont.woff">
+    <link rel="stylesheet" href="fonts/FontAwesome.otf">
+    <link rel="stylesheet" href="lib/kendo-ui/src/styles/web/kendo.common.css">
+    <link rel="stylesheet" href="lib/kendo-ui/src/styles/web/kendo.rtl.css">
+    <link rel="stylesheet" href="lib/kendo-ui/src/styles/web/kendo.silver.css"><!--
+    <link rel="stylesheet" href="lib/kendo-ui/src/styles/web/kendo.metro1.css">--><!--
+    <link rel="stylesheet" href="lib/kendo-ui/src/styles/mobile/kendo.mobile.all.css">--><!--
+    <link rel="stylesheet" href="lib/kendo-ui/src/styles/mobile/kendo.mobile.ios.css" />-->
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <script src="lib/console-sham.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="lib/angular-1.4.0/angular.js"></script>
+    <script src="lib/angularjs-toaster/toaster.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="lib/kendo-ui/src/js/kendo.all.js"></script>
+    <script src="lib/kendo-ui/src/js/messages/kendo.messages.zh-CN.js"></script>
+    <script src="lib/kendo-ui/src/js/cultures/kendo.culture.zh-CN.js"></script>
+    <script src="lib/angular-file-upload.js"></script>
+    <script src="lib/ngStorage/ngStorage.min.js"></script>
+    <script type="text/javascript">
+        //set current to the "en-GB" culture script
+        kendo.culture("zh-CN");
+    </script>
+    <script src="app.js"></script>
+    <script src="app.state.js"></script>
+    <script src="app.constants.js"></script>
+    <script src="model/login/login.controller.js"></script>
+    <script src="model/test/test.controller.js"></script>
+    <script src="service/loginService.js"></script>
+    <script src="service/jwtService.js"></script>
+    <script src="interceptors/auth.interceptor.js"></script>
+    <script src="interceptors/errorhandler.interceptor.js"></script>
+    <script src="config/http.config.js"></script>
+    <script src="service/testService.js"></script>
+
+    <!--navbar-->
+    <script src="model/navbar/navbar.controller.js"></script>
+
+    <!--student-->
+    <script src="model/navbar/Student/StuInfo/StuInfo.controller.js"></script>
+    <script src="model/navbar/Student/StuGrade/StuGrade.controller.js"></script>
+    <script src="model/navbar/Student/StuCourse/StuCourse.controller.js"></script>
+    <script src="model/navbar/Student/StuSchedule/StuSchedule.controller.js"></script>
+    <script src="model/navbar/Student/Student.service.js"></script>
+
+    <!--teacher-->
+    <script src="model/navbar/Teacher/teaClass/teaClass.controller.js"></script>
+    <script src="model/navbar/Teacher/teaInfo/teaInfo.controller.js"></script>
+    <script src="model/navbar/Teacher/teaCourse/teaCourse.controller.js"></script>
+    <script src="model/navbar/Teacher/Teacher.service.js"></script>
+    <!--course-->
+    <script src="model/navbar/Course/CourInfo/CourInfo.controller.js"></script>
+    <script src="model/navbar/Course/CourSetting/CourSetting.controller.js"></script>
+    <script src="model/navbar/Course/course.service.js"></script>
+    <!--class-->
+    <script src="model/navbar/Class/class.controller.js"></script>
+    <script src="model/navbar/Class/class.service.js"></script>
+    <!--user-->
+    <script src="model/navbar/User/user.controller.js"></script>
+    <script src="model/navbar/User/user.service.js"></script>
+
+    <!--person-->
+    <script src="model/navbar/Person/CourseTable/courseTable.controller.js"></script>
+    <script src="model/navbar/Person/OnlineChoose/onlineChoose.controller.js"></script>
+    <script src="model/navbar/Person/CourseChoose/courseChoose.controller.js"></script>
+    <script src="model/navbar/Person/Info/info.controller.js"></script>
+    <script src="model/navbar/Person/Score/score.controller.js"></script>
+
+</head>
+<body>
+<!--<div ng-include="'model/navbar/navbar.html'"></div>-->
+<!--<div ui-view style="margin-top:70px;">-->
+<!--</div>-->
+<div ui-view="navbar" ng-cloak></div>
+<div ui-view="content" style="margin-top:70px;">
+</div>
+</body>
+</html>
